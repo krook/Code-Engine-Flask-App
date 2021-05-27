@@ -1,7 +1,6 @@
-FROM tiangolo/uwsgi-nginx-flask:python3.8
-
-ENV LISTEN_PORT 8080
-
+FROM python:alpine3.7
+COPY . /app
+WORKDIR /app
+RUN pip install -r requirements.txt
 EXPOSE 8080
-
-COPY ./app /app
+CMD python ./index.py
